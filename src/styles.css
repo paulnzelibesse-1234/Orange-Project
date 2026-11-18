@@ -1,0 +1,106 @@
+:root {
+  --orange: #ff7900;
+  --orange-dark: #e06a00;
+  --text: #1d1d1d;
+  --muted: #6b6b6b;
+  --border: #e3e3e3;
+  --bg: #f5f5f5;
+  --bg-soft: #fafafa;
+  --card: #ffffff;
+  --danger: #c62828;
+  --success: #2e7d32;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+}
+h1 { font-size: 24px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 0 0 12px; }
+h3 { font-size: 14px; margin: 16px 0 8px; }
+a { color: var(--orange-dark); }
+.muted { color: var(--muted); }
+.center { text-align: center; }
+.pre { white-space: pre-wrap; }
+.ref { font-family: Consolas, monospace; color: var(--muted); font-size: 12px; }
+
+/* Cartes & mise en page */
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.card.no-pad { padding: 0; overflow-x: auto; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 14px; }
+.grid-2.gap { gap: 18px; }
+.form-card { max-width: 820px; }
+.actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+@media (max-width: 700px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+/* Formulaires */
+label { display: flex; flex-direction: column; gap: 5px; font-weight: 500; margin-bottom: 12px; }
+input, select, textarea {
+  font: inherit; padding: 8px 10px; border: 1px solid #cfcfcf; border-radius: 6px; background: #fff; color: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--orange); outline-offset: -1px; border-color: var(--orange); }
+input[type=checkbox] { padding: 0; }
+textarea { resize: vertical; }
+
+/* Boutons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  font: inherit; font-weight: 600; padding: 8px 16px; border-radius: 6px; cursor: pointer;
+  border: 1px solid #cfcfcf; background: #fff; color: var(--text); text-decoration: none;
+}
+.btn:hover { background: #f0f0f0; }
+.btn.primary { background: var(--orange); border-color: var(--orange); color: #000; }
+.btn.primary:hover { background: var(--orange-dark); }
+.btn.danger { background: #fff; border-color: var(--danger); color: var(--danger); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn.full { width: 100%; }
+.btn-link { background: none; border: none; padding: 0; color: var(--orange-dark); cursor: pointer; font: inherit; }
+
+/* Alertes */
+.alert { padding: 10px 14px; border-radius: 6px; margin-bottom: 14px; }
+.alert.error { background: #fdecea; color: var(--danger); }
+.alert.success { background: #e8f5e9; color: var(--success); }
+
+/* Tableaux */
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.table th { font-size: 12px; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--bg-soft); }
+.table tr.clickable { cursor: pointer; }
+.table tr.clickable:hover td { background: #fff6ee; }
+
+/* Badges statut / priorité / validation */
+.badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.s-EN_COURS_ATTRIBUE { background: #e3f2fd; color: #1565c0; }
+.s-EN_COURS_PLANIFIE { background: #fff3e0; color: #e65100; }
+.s-EN_ATTENTE { background: #ede7f6; color: #5e35b1; }
+.s-RESOLU { background: #e8f5e9; color: #2e7d32; }
+/* Délai de traitement (8 h) */
+.d-ok { background: #e8f5e9; color: #2e7d32; }
+.d-proche { background: #fff8e1; color: #8d6e00; }
+.d-pause { background: #eceff1; color: #546e7a; }
+.d-hors { background: #c62828; color: #fff; }
+/* Action terrain / validation client */
+.b-terrain { background: #e0f2f1; color: #00695c; }
+/* Type de ticket */
+.t-INCIDENT { background: #fdecea; color: #b71c1c; }
+.t-DEMANDE { background: #e8eaf6; color: #283593; }
+.btn.small { padding: 4px 10px; font-size: 13px; }
+.b-valider { background: #fff3e0; color: #e65100; }
+.b-valide { background: #e8f5e9; color: #2e7d32; }
+.b-sur-terrain { background: #e3f2fd; color: #0d47a1; }
+.p-BASSE { background: #eceff1; color: #546e7a; }
+.p-MOYENNE { background: #e3f2fd; color: #1565c0; }
+.p-HAUTE { background: #fff3e0; color: #e65100; }
+.p-CRITIQUE { background: #c62828; color: #fff; }
+
+/* Pages d'authentification (formulaire dans app-auth-layout) */
+.auth-head { margin-bottom: 22px; }
+.auth-head h1 { font-size: 28px; }
+.auth-head h1::after { content: ''; display: block; width: 48px; height: 4px; background: var(--orange); margin-top: 10px; border-radius: 2px; }
+.auth-form .btn.full { padding: 11px 16px; margin-top: 4px; }
